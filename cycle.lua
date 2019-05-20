@@ -11,6 +11,9 @@ minetest.register_globalstep(function(dtime)
     local data = minetest.get_biome_data(pos) -- biome, heat, humidity
     local biome_name = minetest.get_biome_name(data.biome)
 
+		-- taiga, savanna, grassland, deciduous_forest, snowy_grassland, coniferous_forest_dunes
+		-- 
+
     print("Player: pos=" .. minetest.pos_to_string(pos) .. " biome=" .. biome_name ..
       " heat=" .. data.heat .. " humidity=" .. data.humidity)
   end
