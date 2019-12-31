@@ -1,7 +1,7 @@
 local timer = 0
 
 unified_weather.register_weather("rain", {
-	on_step = function(player, dtime)
+	on_step = function(player, dtime, intensity)
 		timer = timer + dtime
 		if timer < 2 then return end
 		timer=0
@@ -26,7 +26,7 @@ unified_weather.register_weather("rain", {
 		end
 
 		minetest.add_particlespawner({
-			amount = 250,
+			amount = 250 * (intensity or 1),
 			time = 2,
 			minpos = vector.add(ppos, {x=-20, y=10, z=-20}),
 			maxpos = vector.add(ppos, {x=20, y=10, z=20}),
