@@ -21,15 +21,6 @@ function update_weather(player, def)
 	local player_name = player:get_player_name()
 
 	if def == "rain" then
-		player:set_sky({r=150, g=150, b=150},"plain",{})
-		player:set_clouds({
-			thickness=16,
-			color={r=243, g=214, b=255, a=229},
-			ambient={r=0, g=0, b=0, a=255},
-			density=0.9,
-			height=100,
-			speed={y=-2,x=-1}
-		})
 
 		if math.random(2) == 1 then
 			minetest.sound_play("unified_weather_rain", {
@@ -41,56 +32,48 @@ function update_weather(player, def)
 		end
 
 		minetest.add_particlespawner({
-			amount = 1000,
+			amount = 250,
 			time = 2,
 			minpos = vector.add(ppos, {x=-20, y=10, z=-20}),
 			maxpos = vector.add(ppos, {x=20, y=10, z=20}),
-			minvel = {x=2, y=-5, z=0},
-			maxvel = {x=2, y=-12, z=0},
+			minvel = {x=0, y=-10, z=0},
+			maxvel = {x=0, y=-12, z=0},
 			minacc = {x=0, y=0, z=0},
 			maxacc = {x=0, y=0, z=0},
-			minexptime = 1,
+			minexptime = 5,
 			maxexptime = 5,
-			minsize = 20,
-			maxsize = 30.7,
+			minsize = 2,
+			maxsize = 3,
 			collisiondetection = true,
 			collision_removal = true,
 			object_collision = true,
 			vertical = true,
-			texture = "weather_rain.png",
+			texture = "unified_weather_rain.png",
 			playername = player_name
 		})
+
 	elseif def == "snow" then
 		minetest.add_particlespawner({
-			amount = 1000,
-			time = 5,
-			minpos = vector.add(ppos, {x=-20, y=5, z=-20}),
-			maxpos = vector.add(ppos, {x=20, y=10, z=20}),
-			minvel = {x=0.5, y=-1, z=0},
-			maxvel = {x=1, y=-3, z=0},
-			minacc = {x=0, y=0, z=0},
-			maxacc = {x=0, y=0, z=0},
-			minexptime = 1,
-			maxexptime = 5,
-			minsize = 20,
-			maxsize = 30.7,
-			collisiondetection = true,
-			collision_removal = true,
-			object_collision = true,
-			vertical = true,
-			texture = "weather_snow.png",
-			playername = player_name
-		})
-	else
-		player:set_sky({r=0, g=0, b=0},"regular",{})
-		player:set_clouds({
-			thickness=16,
-			color={r=243, g=214, b=255, a=229},
-			ambient={r=0, g=0, b=0, a=255},
-			density=0.4,
-			height=100,
-			speed={y=-2,x=-1}
-		})
+	    amount = 500,
+	    time = 5,
+	    minpos = vector.add(ppos, {x=-20, y=10, z=-20}),
+	    maxpos = vector.add(ppos, {x=20, y=10, z=20}),
+	    minvel = {x=0, y=-1.5, z=0},
+	    maxvel = {x=0, y=-2, z=0},
+	    minacc = {x=0, y=0, z=0},
+	    maxacc = {x=0, y=0, z=0},
+	    minexptime = 6,
+	    maxexptime = 6,
+	    minsize = 1,
+	    maxsize = 1.4,
+	    collisiondetection = true,
+	    collision_removal = true,
+	    object_collision = true,
+	    vertical = true,
+	    texture = "unified_weather_snowflake" .. math.random(1, 12) .. ".png",
+	    playername = player_name
+	  })
+
 	end
 end
 

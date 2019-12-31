@@ -8,8 +8,8 @@ MIT
 ## Sources
 
 - Textures:
-  - Snow cover: WTFPL
-  - Rain / Snow: CC-BY-SA 3.0, credit goes to TeddyDesTodes, from his weather branch at https://github.com/TeddyDesTodes/minetest/tree/weather
+	- **textures/unified_weather_rain.png** CC BY-SA (3.0) by paramat https://github.com/paramat/snowdrift
+	- **textures/unified_weather_snowflake*.png** CC BY-SA (3.0) by paramat https://github.com/paramat/snowdrift
 
 - Sounds
   - unified_weather_rain.ogg: CC0 https://github.com/minetest-mods/mymonths
