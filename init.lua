@@ -5,6 +5,7 @@ unified_weather = {
 }
 
 dofile(MP.."/api.lua")
+dofile(MP.."/common.lua")
 dofile(MP.."/snow.lua")
 dofile(MP.."/rain.lua")
 

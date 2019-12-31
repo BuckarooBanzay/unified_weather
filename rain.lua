@@ -8,11 +8,18 @@ unified_weather.register_weather("rain", {
 
 		local ppos = player:get_pos()
 		local player_name = player:get_player_name()
+		local is_inside = unified_weather.is_pos_inside(ppos)
 
 		if math.random(2) == 1 then
+			local gain = 1.0
+
+			if is_inside then
+				gain = 0.2
+			end
+
 			minetest.sound_play("unified_weather_rain", {
 				to_player = player_name,
-				gain = 1.0,
+				gain = gain,
 				fade = 0.5,
 				pos = vector.add(ppos, {x=0, y=5, z=0})
 			})
